@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #F0FCFF url(http://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-12/island.png) repeat-x 100% -460px;
+}
+
+.mike {
+    width: 180px;
+    position: absolute;
+    top: 55%;
+    left: -15%;
+    transform: rotateZ(-5deg);
+}
+
+.boat {
+    width: 380px;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+.boat img {
+    width: 100%;
+}
+
+.boat::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    background: url(http://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-12/steam.png) no-repeat;
+    background-size: 120px;
+    position: absolute;
+    top: -25%;
+    left: 5%;
+    opacity: 0;
+}
+
+body {
+    animation: bg-move 8s ease-out forwards;
+}
+
+.boat {
+    animation: rock-boat 3s ease-in-out infinite;
+}
+
+.boat::after {
+    animation: steam 4s 2s infinite;
+}
+
+.mike {
+    animation: mike-move 6s 6s ease-out forwards, mike-float 3.2s infinite;
+}
+
+@keyframes rock-boat {
+    50% {
+        transform: rotate(-5deg) translateY(-10px);
+    }
+}
+
+@-webkit-keyframes steam {
+    40%,
+    60% {
+        opacity: .8;
+    }
+    100% {
+        -webkit-transform: translate(-15%, -35%) rotateZ(20deg);
+    }
+}
+
+@keyframes bg-move {
+    0% {
+        background-position: 100% -560px;
+    }
+    100% {
+        background-position: -350% -460px;
+    }
+}
+
+@-webkit-keyframes mike-move {
+    100% {
+        left: 12%;
+    }
+}
+
+@-webkit-keyframes mike-float {
+    50% {
+        -webkit-transform: rotateZ(5deg) translateY(-5px);
+    }
+}
